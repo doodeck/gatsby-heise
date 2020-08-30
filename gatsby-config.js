@@ -15,10 +15,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-atom`,
+      resolve: `gatsby-source-rss-feed`,
       options: {
-        source: `https://www.heise.de/developer/rss/news-atom.xml`,
-        exposeBasalElements: true
+        url: `https://www.heise.de/developer/rss/news-atom.xml`,
+        name: `GatsbyBlog`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration']
+          }
+        }
       }
     },
   ],
